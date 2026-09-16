@@ -15,8 +15,8 @@
    কখনোই "service_role" key এখানে বসাবেন না।
    ============================================================ */
 
-const SUPABASE_URL = 'https://YOUR-PROJECT-REF.supabase.co';
-const SUPABASE_ANON_KEY = 'YOUR-ANON-PUBLIC-KEY';
+const SUPABASE_URL = 'https://azgejwbktvmdphzwtlqd.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_QzbLwr1iHASGObMTmSDosw_k2cS37nd';
 
 const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
   auth: {
