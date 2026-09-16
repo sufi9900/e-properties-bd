@@ -1,0 +1,6 @@
+{
+  "name": "e-properties-bd",
+  "version": "2.0.0",
+  "private": true,
+  "description": "E Properties BD - flats, plots, land share and commercial listings marketplace with a Supabase-powered admin CMS."
+}

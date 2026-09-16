@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta name="theme-color" content="#0B1330">
+<title>Admin — E Properties BD</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="../images/favicon.png">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<!-- ============ LOGIN VIEW ============ -->
+<div class="login-wrap" id="loginView">
+  <div class="login-card">
+    <a href="../index.html" class="brand">
+      <img src="../images/logo.png" alt="logo" data-site-logo>
+      <div class="brand-text">
+        <span class="name" data-site-name>E Properties BD</span>
+        <span class="tagline">ADMIN PANEL</span>
+      </div>
+    </a>
+    <h1>Admin Login</h1>
+    <p class="sub">আপনার admin ইমেইল ও পাসওয়ার্ড দিন।</p>
+    <div class="form-error" id="loginError">Incorrect email or password.</div>
+    <form id="loginForm">
+      <div class="field">
+        <label for="loginEmail">Email</label>
+        <input type="email" id="loginEmail" autocomplete="username" required>
+      </div>
+      <div class="field">
+        <label for="loginPassword">Password</label>
+        <input type="password" id="loginPassword" autocomplete="current-password" required>
+      </div>
+      <button type="submit" class="btn btn-gold btn-block" id="loginBtn">Log in</button>
+    </form>
+    <p class="sub" style="margin-top:18px;margin-bottom:0;"><a href="../index.html">← Back to website</a></p>
+  </div>
+</div>
+
+<!-- ============ ADMIN VIEW ============ -->
+<div class="admin-shell" id="adminView" style="display:none;">
+  <header class="admin-header">
+    <div class="wrap">
+      <a href="../index.html" class="brand">
+        <img src="../images/logo.png" alt="logo" data-site-logo>
+        <div class="brand-text">
+          <span class="name" data-site-name>E Properties BD</span>
+          <span class="tagline">ADMIN PANEL</span>
+        </div>
+      </a>
+      <div style="margin-left:auto;display:flex;gap:10px;">
+        <a href="../index.html" class="btn btn-outline btn-sm" target="_blank">View site</a>
+        <button class="btn btn-outline btn-sm" id="logoutBtn">Log out</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="admin-main">
+    <div class="wrap">
+
+      <div class="admin-tabs" id="adminTabs">
+        <button class="admin-tab active" data-tab="listings">Listings</button>
+        <button class="admin-tab" data-tab="settings">Website Settings</button>
+      </div>
+
+      <!-- ---- LISTINGS TAB ---- -->
+      <div class="admin-tab-panel" id="tab-listings">
+        <div class="admin-grid">
+
+          <!-- ---- Form panel ---- -->
+          <section class="panel">
+            <h2 id="formTitle">Add a new listing</h2>
+            <div class="form-error" id="formError"></div>
+            <form id="listingForm">
+              <div class="field">
+                <label for="f_title">Title</label>
+                <input type="text" id="f_title" placeholder="e.g. Luxury 2200 Sft Residential Apartment" required>
+              </div>
+              <div class="field-row">
+                <div class="field">
+                  <label for="f_category">Category</label>
+                  <select id="f_category">
+                    <option>Flat</option>
+                    <option>Plot</option>
+                    <option>Land Share</option>
+                    <option>Commercial</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="f_location">Location</label>
+                  <input type="text" id="f_location" placeholder="e.g. Bashundhara R/A, Dhaka" required>
+                </div>
+              </div>
+              <div class="field">
+                <label for="f_price">Price (৳)</label>
+                <input type="text" id="f_price" placeholder="e.g. 1,85,00,000">
+              </div>
+              <div class="field-row-3">
+                <div class="field">
+                  <label for="f_size">Size</label>
+                  <input type="text" id="f_size" placeholder="2200 Sft">
+                </div>
+                <div class="field">
+                  <label for="f_beds">Beds</label>
+                  <input type="text" id="f_beds" placeholder="3 or N/A">
+                </div>
+                <div class="field">
+                  <label for="f_baths">Baths</label>
+                  <input type="text" id="f_baths" placeholder="2 or N/A">
+                </div>
+              </div>
+
+              <div class="field">
+                <label>Photos</label>
+                <div class="image-url-list" id="imageList"></div>
+                <input type="file" id="imageFileInput" accept="image/*" multiple style="display:none">
+                <button type="button" class="add-image-btn" id="uploadPhotoBtn">+ Upload photo</button>
+                <button type="button" class="add-image-btn" id="addImageUrlBtn">+ Add photo by link</button>
+                <div class="hint" id="uploadHint"></div>
+              </div>
+
+              <div class="field">
+                <label for="f_video">Video tour link (optional)</label>
+                <input type="text" id="f_video" placeholder="Paste a YouTube or Facebook video link">
+                <div class="hint">Paste a normal YouTube/Facebook link — it will be embedded automatically.</div>
+              </div>
+
+              <div class="field">
+                <label for="f_description">Description</label>
+                <textarea id="f_description" placeholder="Details about the property…"></textarea>
+              </div>
+
+              <div class="field">
+                <label style="display:flex;align-items:center;gap:8px;cursor:pointer;">
+                  <input type="checkbox" id="f_featured" style="width:auto;">
+                  Mark as Featured
+                </label>
+              </div>
+
+              <div class="field-row">
+                <button type="submit" class="btn btn-gold btn-block" id="saveBtn">Save listing</button>
+                <button type="button" class="btn btn-outline btn-block" id="cancelBtn" style="display:none;">Cancel edit</button>
+              </div>
+            </form>
+          </section>
+
+          <!-- ---- Listings panel ---- -->
+          <section class="panel">
+            <h2>All listings (<span id="listingCount">0</span>)</h2>
+            <div id="listingRows"></div>
+          </section>
+
+        </div>
+      </div>
+
+      <!-- ---- SETTINGS TAB ---- -->
+      <div class="admin-tab-panel" id="tab-settings" style="display:none;">
+        <div class="settings-grid">
+
+          <section class="panel">
+            <h2>Header &amp; Branding</h2>
+            <div class="form-error" id="settingsError"></div>
+            <form id="settingsForm">
+              <div class="field">
+                <label for="s_siteName">Site name</label>
+                <input type="text" id="s_siteName" placeholder="E Properties BD">
+              </div>
+              <div class="field">
+                <label for="s_tagline">Tagline (header, small text)</label>
+                <input type="text" id="s_tagline" placeholder="FLATS & PLOTS MARKETPLACE">
+              </div>
+              <div class="field">
+                <label>Logo</label>
+                <div class="image-url-list" id="logoPreviewWrap"></div>
+                <input type="file" id="logoFileInput" accept="image/*" style="display:none">
+                <button type="button" class="add-image-btn" id="uploadLogoBtn">+ Upload logo</button>
+                <div class="hint">লোগো আপলোড না করলে ডিফল্ট লোগো ব্যবহার হবে।</div>
+              </div>
+
+              <h2 style="margin-top:24px;">Homepage Hero</h2>
+              <div class="field">
+                <label for="s_heroEyebrow">Eyebrow (top small line)</label>
+                <input type="text" id="s_heroEyebrow" placeholder="STATUS & ELITE LISTINGS ACROSS DHAKA">
+              </div>
+              <div class="field">
+                <label for="s_heroTitle">Headline</label>
+                <textarea id="s_heroTitle" placeholder="Find your next flat, plot or commercial space…"></textarea>
+              </div>
+              <div class="field">
+                <label for="s_heroDescription">Description</label>
+                <textarea id="s_heroDescription" placeholder="Every listing here is added and verified…"></textarea>
+              </div>
+
+              <h2 style="margin-top:24px;">Contact &amp; Footer</h2>
+              <div class="field">
+                <label for="s_whatsappNumber">WhatsApp number (country code, no +, no spaces)</label>
+                <input type="text" id="s_whatsappNumber" placeholder="8801XXXXXXXXX">
+              </div>
+              <div class="field">
+                <label for="s_whatsappMessage">Default WhatsApp message</label>
+                <input type="text" id="s_whatsappMessage" placeholder="Hi, I am interested in a property...">
+              </div>
+              <div class="field">
+                <label for="s_footerText">Footer text (next to copyright)</label>
+                <input type="text" id="s_footerText" placeholder="All listings verified by our team.">
+              </div>
+              <div class="field">
+                <label for="s_footerAddress">Office address (optional, shown in footer)</label>
+                <input type="text" id="s_footerAddress" placeholder="House 12, Road 5, Dhanmondi, Dhaka">
+              </div>
+              <div class="field">
+                <label for="s_facebookUrl">Facebook page link (optional)</label>
+                <input type="text" id="s_facebookUrl" placeholder="https://facebook.com/yourpage">
+              </div>
+
+              <button type="submit" class="btn btn-gold btn-block" id="settingsSaveBtn">Save settings</button>
+            </form>
+          </section>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../js/config.js"></script>
+<script src="../js/api.js"></script>
+<script src="../js/admin.js"></script>
+</body>
+</html>

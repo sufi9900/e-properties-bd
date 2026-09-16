@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta name="theme-color" content="#0B1330">
+<title>E Properties BD — Flats, Plots &amp; Commercial Listings in Dhaka</title>
+<meta name="description" content="Browse flats, plots, land shares and commercial spaces across Dhaka. Verified listings, video tours, and direct WhatsApp contact.">
+<link rel="icon" href="images/favicon.png">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <img src="images/logo.png" alt="logo" data-site-logo>
+      <div class="brand-text">
+        <span class="name" data-site-name>E Properties BD</span>
+        <span class="tagline" data-site-tagline>FLATS &amp; PLOTS MARKETPLACE</span>
+      </div>
+    </a>
+
+    <div class="header-search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" id="searchInput" placeholder="Search by title or location…">
+    </div>
+
+    <div class="header-actions">
+      <a href="admin/index.html" class="btn btn-outline btn-sm">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        Admin Login
+      </a>
+      <a id="waHeaderBtn" class="btn btn-whatsapp btn-sm" target="_blank" rel="noopener">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.79.47 3.47 1.29 4.93L2 22l5.29-1.38a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm5.78 14.1c-.24.68-1.4 1.3-1.93 1.38-.49.08-1.11.11-1.79-.11-.41-.13-.94-.31-1.61-.6-2.84-1.23-4.7-4.1-4.84-4.29-.14-.19-1.16-1.54-1.16-2.94s.73-2.09.99-2.37c.26-.29.57-.36.76-.36h.55c.18 0 .42-.03.65.5.24.55.81 1.9.88 2.04.07.14.11.31.02.5-.09.19-.14.31-.28.47-.14.16-.29.36-.42.48-.14.14-.28.29-.12.57.16.28.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.22 1.37.28.14.44.12.6-.07.16-.19.68-.79.86-1.06.18-.28.36-.23.6-.14.24.09 1.55.73 1.81.86.26.14.44.2.5.31.07.11.07.65-.17 1.33Z"/></svg>
+        Direct WhatsApp
+      </a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-eyebrow" data-hero-eyebrow>STATUS &amp; ELITE LISTINGS ACROSS DHAKA</div>
+    <h1 data-hero-title>Find your next flat, plot or commercial space — without the runaround.</h1>
+    <p class="lede" data-hero-description>Every listing here is added and verified by the E Properties BD team directly, with real photos, walkthrough videos, and one WhatsApp tap to the person who can actually close the deal.</p>
+    <div class="hero-stats">
+      <div class="stat"><div class="num" id="statTotal">–</div><div class="label">Active listings</div></div>
+      <div class="stat"><div class="num" id="statFeatured">–</div><div class="label">Featured this week</div></div>
+      <div class="stat"><div class="num" id="statVideo">–</div><div class="label">With video tours</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="categories">
+  <div class="wrap">
+    <div class="section-label">
+      <h2>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        Browse categories
+      </h2>
+      <div class="result-count"><b id="resultCount">0</b> properties found</div>
+    </div>
+    <div class="cat-tabs" id="catTabs"></div>
+
+    <div class="filter-row">
+      <label>Location
+        <select id="locationFilter"><option value="">All locations</option></select>
+      </label>
+      <label>Sort by
+        <select id="sortFilter">
+          <option value="newest">Newest first</option>
+          <option value="oldest">Oldest first</option>
+        </select>
+      </label>
+    </div>
+  </div>
+</section>
+
+<main class="wrap">
+  <div class="grid" id="listingGrid"></div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-brand">
+      <img src="images/logo.png" alt="" data-site-logo>
+      <span>© <span id="year"></span> <span data-site-name>E Properties BD</span>. <span data-footer-text>All listings verified by our team.</span></span>
+    </div>
+    <div class="footer-links">
+      <span id="footerAddress" class="footer-address" style="display:none;"></span>
+      <a id="footerFacebookLink" target="_blank" rel="noopener" style="display:none;">Facebook</a>
+      <a id="waFooterLink" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="admin/index.html">Admin Login</a>
+    </div>
+  </div>
+</footer>
+
+<a id="fabWa" class="fab-whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.79.47 3.47 1.29 4.93L2 22l5.29-1.38a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm5.78 14.1c-.24.68-1.4 1.3-1.93 1.38-.49.08-1.11.11-1.79-.11-.41-.13-.94-.31-1.61-.6-2.84-1.23-4.7-4.1-4.84-4.29-.14-.19-1.16-1.54-1.16-2.94s.73-2.09.99-2.37c.26-.29.57-.36.76-.36h.55c.18 0 .42-.03.65.5.24.55.81 1.9.88 2.04.07.14.11.31.02.5-.09.19-.14.31-.28.47-.14.16-.29.36-.42.48-.14.14-.28.29-.12.57.16.28.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.22 1.37.28.14.44.12.6-.07.16-.19.68-.79.86-1.06.18-.28.36-.23.6-.14.24.09 1.55.73 1.81.86.26.14.44.2.5.31.07.11.07.65-.17 1.33Z"/></svg>
+</a>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

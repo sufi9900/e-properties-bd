@@ -1,0 +1,17 @@
+[build]
+  publish = "."
+
+# This is now a plain static site — Supabase (not Netlify Functions/Blobs)
+# handles data, auth and file storage. No functions or build step needed.
+
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
